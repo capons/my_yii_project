@@ -8,31 +8,43 @@
 
 namespace app\controllers;
 
+
 use Yii;
 use yii\web\Controller;
-use app\models\EntryForm; //include model
+use app\models\Category; //include model
+use app\models\Product;
 
 class FormController extends Controller
 {
     public function actionTest()
     {
-        $model = new EntryForm();
-
+        $model = new Category();
+        $product = new Product();
+        $cat = Category::find() //select all product category
+            ->all();
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-            // valid data received in $model
+            
+            $model->name = $_POST['Category']['category']; //сохраняем данные из POST в таблицу с ячейкой name
+            $model->parent_id = $_POST['Category']['parent_category']; //parent category
+            if ($model->save())
 
-            // do something meaningful here about $model ...
-            //СОХРАНИТЬ В БАЗУ ФОРМУ
-
-
-
-
-            return $this->render('form', ['model' => $model]);
-        } else {
-            // either the page is initially displayed or there is some validation error
-            return $this->render('form', ['model' => $model]);
+              //  Yii::$app->response->redirect(array('form/test', 'model' => $model));
+            return $this->refresh(); //if save true redirect
         }
+        if($product->load(Yii::$app->request->post()) && $product->validate()) {
 
-        //return $this->render('say', ['message' => $message]);
+            $product->title = $_POST['Product']['name'];
+            $product->description = $_POST['Product']['desc'];
+            $product->price = $_POST['Product']['p_price'];
+            $product->category_id = $_POST['Product']['cat'];
+
+            if($product->save())
+            return $this->refresh(); //if save true redirect
+        } else {
+            return $this->render('form', ['model' => $model,'cat' => $cat,'product' => $product]);
+        }
+        
+        
     }
+
 }

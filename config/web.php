@@ -37,19 +37,9 @@ $config = [
                 ],
             ],
         ],
-        /*
-        'modules' => [
-                'user' => [
-                'class' => 'dektrium\user\Module',
-                'controllerMap' => [
-                    'admin' => 'app\controllers\user\AdminController'
-                ],
-            ],
-        ],
-        */
-        'controllerMap' => [
+        'controllerMap' => [                             //add new controller FormController
             'class' => 'app\controllers\FormController',
-            'pageTitle' => 'something new',
+            'pageTitle' => 'Page form test',
         ],
         'db' => require(__DIR__ . '/db.php'),
         'urlManager' => [
