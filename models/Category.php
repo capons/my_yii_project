@@ -9,7 +9,7 @@ use yii\validators\RequiredValidator;
 
 class Category extends ActiveRecord
 {
-    public $category;
+    public $category;  //input vield name
     public $parent_category;
     public function rules()
     {
@@ -23,6 +23,11 @@ class Category extends ActiveRecord
     {
         return 'category';
     }
+    /*
+    public function getProduct()
+    {
+        return $this->hasMany(Product::className(), ['category_id' => 'id']);
+    }
+    */
     
-
 }
