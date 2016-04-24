@@ -8,24 +8,18 @@
 
 namespace app\controllers;
 
+use app\models\Category;
 use Yii;
-use yii\data\ActiveDataProvider;
 use yii\web\Controller;
-use app\models\Category; //include model
+use yii\data\ActiveDataProvider;
 use app\models\Product;  //include model
+use app\models\ProductSearch; //include model
 class GoodsController extends Controller
 {
     public function actionView()
     {
-        /*
-        $dataProvider = new ActiveDataProvider([
-            'query' => Product::find()->joinWith('category', false, 'INNER JOIN')->all(),
-        ]);
-        */
-        //$dataProvider = Product::find()->joinWith('category')->all();
-        $dataProvider = Product::find()->innerJoinWith('category')->all();
-        //$test = $dataProvider->getCategory()->joinWith('product')->all();
-
-        return $this->render('goods',['dataProvider' => $dataProvider]);
+        $product_search = new ProductSearch();//product search model
+        $dataProvider = $product_search->search(Yii::$app->request->get());//
+        return $this->render('goods',['searchModel' => $product_search,'dataProvider' => $dataProvider]);
     }
 }

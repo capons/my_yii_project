@@ -18,7 +18,7 @@ class FormController extends Controller
 {
     public function actionTest()
     {
-        $model = new Category();
+        $model = new Category(); // экземпляр модели Category
         $product = new Product();
         $cat = Category::find() //select all product category
             ->all();
@@ -43,8 +43,5 @@ class FormController extends Controller
         } else {
             return $this->render('form', ['model' => $model,'cat' => $cat,'product' => $product]);
         }
-        
-        
     }
-
 }

@@ -33,9 +33,9 @@ $category = ArrayHelper::map($cat, 'id','name');  //$test array from controller 
         ]); ?>
         <?= $form->field($model, 'category')->textInput()->label('Category') ?>
         <?= $form->field($model, 'parent_category')->textInput()->label('Parent category')->dropDownList($category, [
-            'prompt' => '--Select Parent Category--',
-            'options' => ['840' => ['selected'=>'selected']]
-        ]); ?>
+             'prompt' => '--Select Parent Category--',
+             'options' => ['840' => ['selected'=>'selected']]
+              ]); ?>
         <div class="form-group">
             <?= Html::submitButton('Submit', ['class' => 'btn btn-primary']) ?>
         </div>
