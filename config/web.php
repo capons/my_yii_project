@@ -6,6 +6,7 @@ $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
+    'defaultRoute' => 'sitelogin', //default controller (if remove 'SiteController will be default')
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
@@ -37,10 +38,16 @@ $config = [
                 ],
             ],
         ],
+        /*
         'controllerMap' => [                             //add new controller FormController
-            'class' => 'app\controllers\FormController',
-            'pageTitle' => 'Page form test',
+
+            'class' => 'app\controllers\SiteController',
+            //'defaultRoute' => 'about',
+            //'class' => 'app\controllers\FormController',
+            //'pageTitle' => 'Page form test',
         ],
+        */
+
         'db' => require(__DIR__ . '/db.php'),
         'urlManager' => [
             'class' => 'yii\web\UrlManager',

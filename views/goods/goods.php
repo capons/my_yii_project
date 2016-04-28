@@ -46,5 +46,10 @@ use app\models\Category;
             'filter' => Html::activeDropDownList($searchModel, 'category', ArrayHelper::map(Category::find()->all(), 'id', 'name'),['class'=>'form-control','prompt' => 'Select Category']),
         ],
     ],
-]); ?>
+]);
+
+  echo '<pre>';
+    print_r($searchModel);
+    echo '</pre>';
+?>
 

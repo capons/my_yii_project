@@ -6,6 +6,7 @@
 
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
+use yii\bootstrap\Alert;
 
 $this->title = 'Login';
 $this->params['breadcrumbs'][] = $this->title;
@@ -14,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>Please fill out the following fields to login:</p>
-
+    <?= Alert::widget() ?>
     <?php $form = ActiveForm::begin([
         'id' => 'login-form',
         'options' => ['class' => 'form-horizontal'],
@@ -23,10 +24,18 @@ $this->params['breadcrumbs'][] = $this->title;
             'labelOptions' => ['class' => 'col-lg-1 control-label'],
         ],
     ]); ?>
-
         <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
+        <div class="form-group">
+            <div style="display: inline-block" class="col-lg-3">
+                
+            </div>
+        </div>
 
-        <?= $form->field($model, 'password')->passwordInput() ?>
+        <?= $form->field($model, 'email', [
+            'inputOptions' => [
+                'placeholder' => 'email',
+            ],
+        ])->passwordInput() ?>
 
         <?= $form->field($model, 'rememberMe')->checkbox([
             'template' => "<div class=\"col-lg-offset-1 col-lg-3\">{input} {label}</div>\n<div class=\"col-lg-8\">{error}</div>",
