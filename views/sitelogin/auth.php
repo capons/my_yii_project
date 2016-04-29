@@ -3,11 +3,11 @@ use yii\bootstrap\Modal;
 use yii\captcha\Captcha;
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
+use yii\bootstrap\Alert;
 ?>
-
 <div class="login-box">
     <div class="login-logo">
-        <a href="#"><b>Admin</b>Panel</a>
+        <a href="#"><b>G</b>o</a>
     </div><!-- /.login-logo -->
     <div class="login-box-body">
         <p class="login-box-msg">Sign in to start creativity</p>
@@ -23,7 +23,7 @@ use yii\helpers\Html;
             <div class="row">
                 <div class="col-xs-8">
                     <div style="padding-left: 0px;" class="col-xs-6">
-                        <?= Html::a('label', ['/sitelogin/reg'], ['class'=>'btn btn-primary btn-flat']) ?> <!--Link to registr view -->
+                        <?= Html::a('Get started', ['/sitelogin/reg'], ['class'=>'btn btn-primary btn-flat']) ?> <!--Link to registr view -->
                     </div>
                 </div><!-- /.col -->
                 <div class="col-xs-4">

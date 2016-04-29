@@ -1,3 +1,13 @@
 .modal-header {
     border-bottom:none;
 }
+.auth-info {
+    width: 360px;
+    position: absolute;
+    left: 50%;
+    margin-left: -180px;
+    top: 0px;
+}
+#a-info-inside {
+    text-align: center;
+}

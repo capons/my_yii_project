@@ -10,20 +10,21 @@ namespace app\models;
 
 use Yii;
 use yii\base\Model;
+use yii\db\ActiveRecord;
 
-class RegForm extends Model
+class RegForm extends ActiveRecord
 {
-    public $email;
+    public $useremail;
     public $username;
     public $password;
    // public $captcha;
     public function rules()
     {
         return [
-            [['email','username','password'], 'required','message' => 'enter a value for {attribute}'],
-            [['email','username','password'], 'trim'],
-            [['email','username','password'], 'safe'],
-            [['email'],'email','message' => 'Please insert valide email'],
+            [['useremail','username','password'], 'required','message' => 'enter a value for {attribute}'],
+            [['useremail','username','password'], 'trim'],
+            [['useremail','username','password'], 'safe'],
+            [['useremail'],'email','message' => 'Please insert valide email'],
         ];
     }
     public static function tableName()
@@ -33,7 +34,7 @@ class RegForm extends Model
     public function attributeLabels()
     {
         return [
-            'email' => 'Email',
+            'useremail' => 'Email',
             'username' => 'Username',
             'password' => 'Password',
         ];

@@ -24,9 +24,9 @@ use yii\helpers\Html;
                 // 'options' => ['class' => 'form-horizontal'],
             ]); ?>
 
-            <?= $form->field($model, 'email',[
+            <?= $form->field($model, 'useremail',[
                 'inputOptions' => [
-                    'placeholder' => $model->getAttributeLabel('email'),
+                    'placeholder' => $model->getAttributeLabel('useremail'),
                 ],
             ])->label(false) ?>
 
@@ -44,7 +44,7 @@ use yii\helpers\Html;
 
             <div class="form-group">
                 <div style="padding-right: 0px" class="col-lg-12">
-                    <?= Html::submitButton('Login', ['class' => 'btn btn-primary btn-flat', 'name' => 'login-button','style' => 'float:right']) ?>
+                    <?= Html::submitButton('<b>G</b>o', ['class' => 'btn btn-primary btn-flat', 'name' => 'login-button','style' => 'float:right']) ?>
                 </div>
             </div>
 

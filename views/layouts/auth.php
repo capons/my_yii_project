@@ -1,6 +1,8 @@
 <?php
 use app\assets\AppAssetAuth;
 use yii\helpers\Html;
+use yii\bootstrap\Alert;
+
 
 AppAssetAuth::register($this);
 ?>
@@ -16,7 +18,26 @@ AppAssetAuth::register($this);
     </head>
 <body>
 <?php $this->beginBody() ?>
-
+<div class="auth-info">
+<?php if(!empty(Yii::$app->session->getFlash('success'))){ ?>
+    <?= Alert::widget([
+        'options' => [
+        'class' => 'alert-info',
+            'id' => 'a-info-inside',
+        ],
+        'body' => Yii::$app->session->getFlash('success'),
+    ]); ?>
+<?php } ?>
+<?php if(!empty(Yii::$app->session->getFlash('error'))){ ?>
+    <?= Alert::widget([
+        'options' => [
+            'class' => 'alert-warning',
+            'id' => 'a-info-inside',
+        ],
+        'body' => Yii::$app->session->getFlash('error'),
+    ]); ?>
+<?php } ?>
+</div>
 
 <?= $content ?>
 
